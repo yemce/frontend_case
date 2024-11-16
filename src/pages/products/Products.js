@@ -1,38 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import ProductServices from '../../services/ProductServices';
+import React, { useContext } from "react";
+import AppContext from "../../context/AppContext";
+import { Grid2 } from '@mui/material'; 
+import ProductCard from "../../components/productCard/ProductCard";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
+  const { products, load, error } = useContext(AppContext);
 
-  // Ürünleri çekmek için fetchProducts fonksiyonu
-  const fetchProducts = async () => {
-    try {
-      const productData = await ProductServices.getAllProducts(); // Bu satırda hata alıyorsunuz
-      setProducts(productData.products || productData); // Eğer products objesi varsa, kullanıyoruz
-    } catch (error) {
-      console.error("Ürünleri çekerken hata:", error);
-      setError("Ürünler alınamadı");
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts(); // component mount olduğunda fetchProducts çağrılır
-  }, []);
+  if (load) {
+    return <div>Yükleniyor...</div>;
+  }
 
   return (
     <div>
       <h1>Ürünler</h1>
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      <ul>
-        {products.length > 0 ? (
-          products.map(product => (
-            <li key={product.id}>{product.title}</li> // veya ürünlerin hangi özelliği varsa onu kullanabilirsiniz
+      <Grid2 container spacing={2}>
+        {products && products.length > 0 ? (
+          products.map((product) => (
+            <Grid2 item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <ProductCard product={product} />
+            </Grid2>
           ))
         ) : (
-          <p>Ürünler yükleniyor...</p>
+          <p>Ürün Bulunamadı</p>
         )}
-      </ul>
+      </Grid2>
     </div>
   );
 }

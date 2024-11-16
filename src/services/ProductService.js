@@ -8,7 +8,8 @@ class ProductService {
     async getAllProducts() {
         try {
             const { data } = await axios.get(this.baseUrl);
-            return data; // Ya da data.products, API yapısına bağlı olarak
+            // console.log("Çekilen ürünler:", data.products);
+            return data.products; 
         } catch (error) {
             console.error("Ürünleri çekerken hata oluştu:", error);
             throw error;
@@ -16,4 +17,4 @@ class ProductService {
     }
 }
 
-export default new ProductService();
+export default ProductService;
