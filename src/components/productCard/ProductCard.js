@@ -1,31 +1,40 @@
-// src/components/ProductCard.js
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material'; // Material UI bileşenlerini import ettik
-import './ProductCard.css';
+import { Card, CardContent, CardMedia, Typography, Rating, Box } from '@mui/material';
 
 const ProductCard = ({ product }) => {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2, boxShadow: 3 }}>
+    <Card sx={{ maxWidth: 345, minWidth: 250, height: '100%' }}>  {/* Height %100 ile kartları eşitleme */}
       <CardMedia
         component="img"
         height="140"
-        image={product.image}
+        image={product.thumbnail}
         alt={product.title}
       />
-      <CardContent>
-        <Typography variant="h6" component="div" gutterBottom>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}> {/* İçerik kısmını flex ile hizalama */}
+        <Typography variant="h6" component="div">
           {product.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {product.description}
+          {product.description.length > 100 ? `${product.description.slice(0, 100)}...` : product.description}
         </Typography>
-        <Typography variant="h6" color="primary" sx={{ marginTop: 2 }}>
-          ${product.price}
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Typography variant="h6">${product.price}</Typography>
+          {product.discountPercentage > 0 && (
+            <Typography variant="body2" color="error">
+              -{product.discountPercentage.toFixed(0)}%
+            </Typography>
+          )}
+        </Box>
+        <Box display="flex" alignItems="center" mt={1}>
+          <Rating value={product.rating} readOnly />
+          <Typography variant="body2" ml={1}>
+            ({product.reviews.length} Yorum)
+          </Typography>
+        </Box>
+        <Typography variant="body2" mt={1} color="textSecondary">
+          Stok Durumu: {product.availabilityStatus}
         </Typography>
       </CardContent>
-      <Button size="small" color="primary" sx={{ marginBottom: 2 }}>
-        Sepete Ekle
-      </Button>
     </Card>
   );
 };

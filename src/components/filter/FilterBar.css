@@ -1,0 +1,18 @@
+/* FilterBar.css */
+.filter-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* Her bir form öğesi arasında boşluk eklemek için */
+.filter-sidebar > div {
+    margin-bottom: 50px; /* Her bir öğe arasına 20px boşluk ekliyoruz */
+}

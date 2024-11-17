@@ -1,9 +1,98 @@
-/* src/components/ProductCard.css */
+/* Card container */
 .product-card {
-    transition: transform 0.3s ease-in-out;
+  background-color: #fff; /* Beyaz arka plan */
+  border-radius: 10px; /* Köşeleri yuvarlat */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  overflow: hidden; /* İçeriğin taşmasını engelle */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animasyonu */
+  display: flex;
+  flex-direction: column; /* Üstten alta sıralama */
+  height: 100%; /* Card'ın yüksekliği */
+  cursor: pointer; /* Tıklanabilir gibi göster */
+}
+
+/* Hover effect */
+.product-card:hover {
+  transform: translateY(-5px); /* Hover efektiyle yukarıya kayma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölgeyi artır */
+}
+
+/* Image styling */
+.product-card img {
+  width: 100%; /* Görselin genişliği card'ın tamamını kapsasın */
+  height: 200px; /* Sabit yükseklik */
+  object-fit: cover; /* Görseli en iyi şekilde sığdır */
+  border-bottom: 1px solid #ddd; /* Altında ince bir çizgi */
+}
+
+/* Product info (title, description, price) */
+.product-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Kalan alanı doldur */
+  justify-content: space-between; /* İçeriği üst ve alt kısımlarına yerleştir */
+}
+
+/* Title */
+.product-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0; /* Margin sıfırla */
+  text-overflow: ellipsis; /* Uzun başlıklar için kesme */
+  overflow: hidden;
+  white-space: nowrap; /* Bir satırda tut */
+}
+
+/* Description */
+.product-info p {
+  font-size: 14px;
+  color: #777;
+  margin: 10px 0; /* Araya boşluk ekle */
+  text-overflow: ellipsis; /* Uzun açıklamalar için kesme */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Price */
+.product-info .price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e91e63; /* Fiyat rengi */
+  margin-top: 10px; /* Fiyatın üst kısmına boşluk */
+}
+
+/* Add to Cart button */
+.product-info .add-to-cart-btn {
+  margin-top: 15px;
+  background-color: #4caf50; /* Yeşil renk */
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Hover için geçiş efekti */
+}
+
+/* Hover effect for button */
+.product-info .add-to-cart-btn:hover {
+  background-color: #388e3c; /* Hoverda biraz daha koyu yeşil */
+}
+
+/* Product Card Container (Responsive Design) */
+@media (max-width: 768px) {
+  .product-card {
+    margin: 10px; /* Mobil ekranlarda cardlar arasına boşluk ekle */
   }
-  
-  .product-card:hover {
-    transform: scale(1.05);
+
+  .product-info h3 {
+    font-size: 14px; /* Başlık boyutunu küçük ekranlarda küçült */
   }
-  
+
+  .product-info .price {
+    font-size: 16px; /* Fiyatı daha küçük yap */
+  }
+}

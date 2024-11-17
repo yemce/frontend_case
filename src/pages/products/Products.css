@@ -1,0 +1,13 @@
+/* src/components/Products.css */
+
+.product-list-container {
+    margin-left: 240px; /* 250px for filter bar width + 20px for margin */
+    padding-top: 20px;
+
+  }
+  
+.search-bar {
+    margin-bottom: 20px; /* SearchBar ile FilterBar arasına boşluk ekler */
+  }
+  
+  
