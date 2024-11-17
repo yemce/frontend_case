@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/6bd7f71a-f383-46c0-82c8-e88984f26126)
 
 ### Özet
 service klasöründe json kaynağına istek atılarak veriler alındı. Ardından context yapısı oluşturularak state yönetimi kolaylaştırılması amaçlandı. 
