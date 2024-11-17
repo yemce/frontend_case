@@ -1,7 +1,30 @@
+/src
+  /components
+    /FilterBar           # Filtreleme bileşenleri
+    /ProductCard         # Ürün kartı bileşeni
+  /pages
+    /Products            # Ürünlerin listelendiği ana sayfa
+  /context
+    /AppContext         # Global state yönetimi
+  /service
+    /ProductService      # Kaynaktan veriler çekildi
+  /App.js                # Ana uygulama bileşeni
+  /index.js              # Uygulamanın başlangıç noktası
+### Özet
+service klasöründe json kaynağına istek atılarak veriler alındı. Ardından context yapısı oluşturularak state yönetimi kolaylaştırılması amaçlandı. 
+Products.js sayfasında ürünler listelendi ve ProductCard componenti üzerinden kart yapısı kullanıldı. Filtreleme için filters klasöründe fitreleme 
+işlemleri yapıldı. FilterBar componenti product sayfasında çağrıldı. Bunun içinde yine state yönetimi context üzerinden gerçekleşti.
 
-Bu yönerge, projenizi yerel makinenizde çalıştırmak için gerekli adımları açıklamaktadır.
+# React ile geliştirilen bu proje component ve state yapısını temel alarak geliştirilmiştir.
+# State kontrolü için merkezi bir yapı oluşturmak adına context api yapısı tercih edildi.
+# Kullanıcı arayüzü bileşenleri için muı tercih edildi
+# Kaynağa istek atmak için axios kütüphanesi kullanıldı (fetch yapısına göre daha kullanıcı dostu olduğu için)
 
-### Prerequisites (Ön Koşullar)
+
+
+Projenizi yerel makinenizde çalıştırmak için gerekli adımlar
+
+###Ön Koşullar
 
 Projenin çalışabilmesi için aşağıdaki yazılımların yüklü olması gerekir:
 
