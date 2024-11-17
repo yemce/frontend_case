@@ -1,15 +1,4 @@
-/src
-  /components
-    /FilterBar           # Filtreleme bileşenleri
-    /ProductCard         # Ürün kartı bileşeni
-  /pages
-    /Products            # Ürünlerin listelendiği ana sayfa
-  /context
-    /AppContext         # Global state yönetimi
-  /service
-    /ProductService      # Kaynaktan veriler çekildi
-  /App.js                # Ana uygulama bileşeni
-  /index.js              # Uygulamanın başlangıç noktası
+
 ### Özet
 service klasöründe json kaynağına istek atılarak veriler alındı. Ardından context yapısı oluşturularak state yönetimi kolaylaştırılması amaçlandı. 
 Products.js sayfasında ürünler listelendi ve ProductCard componenti üzerinden kart yapısı kullanıldı. Filtreleme için filters klasöründe fitreleme 
